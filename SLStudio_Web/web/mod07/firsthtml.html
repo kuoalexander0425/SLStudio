@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
+        <style>
+            div{
+                margin: 40px 60px;
+                color: blue;
+                font-family: arial;
+            }
+            .item1{
+                font-style: italic;
+            }
+
+
+        </style>
+        <script>
+            function alert5() {
+                alert("hi5");
+            }
+            function openMyWin(){
+                myWin = window.open("http://www.google.com","_blank");
+            }
+            function closeMyWin(){
+                if(myWin!=null){
+                    myWin.close();
+                    myWin=null;
+                }
+            }
+        </script>
+
+    </head>
+
+    <body>
+        <div>
+            <h1>首頁</h1>
+            <h3>第一個HTML</h3>
+        </div>
+        <div>
+            <ul>
+                <li class="item1">item1</li>
+                <li><s>item2</s></li>
+            </ul>
+            <ol>
+                <li>item1</li>
+                <li><bdo dir="rtl"> Hello Baby</bdo></li>
+            </ol>
+        </div>
+        <table border="1">
+            <tr>
+                <th>一</th><th colspan="2">二</th>           
+            </tr>
+            <tr>
+                <td rowspan="3">row1,cell 1</td><td colspan="2">row2,cell 1</td>
+            </tr>
+            <tr>
+                <td>row 2,cell 2</td>
+                <td>row 2 cell 3</td>
+
+            </tr>
+            <tr>
+                <td colspan="2">row 3,cell 2</td>
+            </tr>
+            <input type="button" value="hello1" onclick="alert('hello')" />
+            <input type="button" value="hello1" onclick="alert5()" />
+            <input type='button' value='open my win' onclick="openMyWin()" />
+            <input type='button' value='close my win' onclick="closeMyWin()" />
+
+
+
+        </table>
+    </body>
+</html>

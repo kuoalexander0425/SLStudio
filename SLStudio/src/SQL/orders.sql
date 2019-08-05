@@ -1,0 +1,20 @@
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` char(10) NOT NULL,
+  `order_time` time NOT NULL,
+  `order_date` date NOT NULL,
+  `addressee_name` varchar(40) NOT NULL,
+  `addressee_email` varchar(50) NOT NULL,
+  `addressee_phone` varchar(30) NOT NULL,
+  `shipping_address` varchar(100) NOT NULL,
+  `payment_type` varchar(10) NOT NULL,
+  `payment_fee` double NOT NULL,
+  `payment_note` varchar(100) DEFAULT NULL,
+  `shipping_type` varchar(45) NOT NULL,
+  `shipping_fee` double NOT NULL,
+  `shipping_note` varchar(100) DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `fkey_orders_customers_idx` (`customer_id`),
+  CONSTRAINT `fkey_orders_customers` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

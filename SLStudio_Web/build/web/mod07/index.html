@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>index</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+        <link href='../fancybox/jquery.fancybox.css' rel="stylesheet" type='text/css'>
+        <script src='../fancybox/jquery.fancybox.js'></script>
+
+        <script src="index.js"></script>
+        <script>
+//            $(function(){
+//                $("#loginLink").click(loginHandler);
+//            });
+// $(document).on("click","#loginLink",loginHandler);
+
+            function loginHandler() {
+                //  alert("Hello");
+
+                //同步的請求
+                //location.href="../login.jsp";
+
+                //非同步的請求
+                var xhr = $.ajax({
+                    url: "../login.jsp"
+                }).done(loginDoneHandler);
+                xhr.name = "loginXHR";
+            }
+
+            function loginDoneHandler(result, status, xhr) {
+                //alert(xhr.name);
+                //alert(result);
+                $("#loginDiv").jsp(result);
+                $.fancybox.open({
+                    src: "#loginDiv"
+                })
+            }
+        </script>
+    </head>
+    <body>
+        <h2>同步請求</h2>
+        <a href="../">Home</a>|
+        <a href="../images/captcha_login.png">captcha</a>|
+        <a href="./index.js">index.js</a>|
+        <a href="javascript:loginHandler()" id="loginLink">Login</a>|
+        <hr>
+        <h2>非同步請求</h2>
+        <p>
+            <img src="../images/captcha_login.png" style="vertical-align: middle">
+            <input type="button" value="test" onclick="testButtonHandler()">
+        </p>
+        <input id="name" type="text" placeholder="請輸入姓名" onchange="helloHandler()">
+        <div id="loginDiv"></div>
+    </body>
+</html>
